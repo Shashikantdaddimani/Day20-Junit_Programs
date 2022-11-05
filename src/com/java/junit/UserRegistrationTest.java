@@ -23,7 +23,7 @@ public class UserRegistrationTest {
 		Assert.assertEquals(true, result);
 	}
 	@Test
-	public void when_Given_LastName_IsNotCorrect_Should_Return_True() {
+	public void when_Given_LastName_IsNotCorrect_Should_Return_false() {
 		boolean result = junit.lastName("daddimani");
 		Assert.assertEquals(false, result);
 	}
@@ -33,7 +33,7 @@ public class UserRegistrationTest {
 		Assert.assertEquals(true, result);
 	}
 	@Test
-	public void when_Given_EmailId_IsNotCorrect_Should_Return_True() {
+	public void when_Given_EmailId_IsNotCorrect_Should_Return_False() {
 		boolean result = junit.emailId("Abc.1xy@.bl.src.in");
 		Assert.assertEquals(false, result);
 	}
@@ -42,9 +42,29 @@ public class UserRegistrationTest {
 		boolean result = junit.mobileNumber("91 9113264303");
 		Assert.assertEquals(true, result);
 	}
-	public void when_Given_MobileNumber_IsNotCorrect_Should_Return_True() {
-		boolean result = junit.mobileNumber("91 9113264303");
+	@Test
+	public void when_Given_MobileNumber_IsNotCorrect_Should_Return_False() {
+		boolean result = junit.mobileNumber("91 5113264303");
 		Assert.assertEquals(false, result);
-	
    }
+	 @Test
+	    public void when_Given_PassWord_IsCorrect_Should_Return_True(){
+		 boolean result = junit.passWord("Sdaddimani");
+		 Assert.assertEquals(true, result);
+	}
+	@Test
+	 public void when_Given_PassWord_IsNotCorrect_Should_Return_False(){
+		 boolean result = junit.passWord("sdadddimaniacv");
+		 Assert.assertEquals(false, result);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
