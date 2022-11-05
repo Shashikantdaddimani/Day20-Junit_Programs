@@ -37,4 +37,14 @@ public class UserRegistrationTest {
 		boolean result = junit.emailId("Abc.1xy@.bl.src.in");
 		Assert.assertEquals(false, result);
 	}
+	@Test
+	public void when_Given_MobileNumber_IsCorrect_Should_Return_True() {
+		boolean result = junit.mobileNumber("91 9113264303");
+		Assert.assertEquals(true, result);
+	}
+	public void when_Given_MobileNumber_IsNotCorrect_Should_Return_True() {
+		boolean result = junit.mobileNumber("91 9113264303");
+		Assert.assertEquals(false, result);
+	
+   }
 }

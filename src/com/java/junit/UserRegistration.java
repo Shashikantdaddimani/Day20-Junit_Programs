@@ -26,4 +26,10 @@ public class UserRegistration {
 		return matcher.matches();
 		
 	}
+	public boolean mobileNumber(String mobileNumber) {
+		String regex ="^(91)[ ]{1}[6-9]{1}[0-9]{9}$";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(mobileNumber);
+		return matcher.matches();
+	}
 }
