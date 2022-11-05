@@ -27,4 +27,14 @@ public class UserRegistrationTest {
 		boolean result = junit.lastName("daddimani");
 		Assert.assertEquals(false, result);
 	}
+	@Test
+	public void when_Given_EmailId_IsCorrect_Should_Return_True() {
+		boolean result = junit .emailId("abc.xyz@bl.co.in");
+		Assert.assertEquals(true, result);
+	}
+	@Test
+	public void when_Given_EmailId_IsNotCorrect_Should_Return_True() {
+		boolean result = junit.emailId("Abc.1xy@.bl.src.in");
+		Assert.assertEquals(false, result);
+	}
 }
