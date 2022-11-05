@@ -57,7 +57,16 @@ public class UserRegistrationTest {
 		 boolean result = junit.passWord("sdadddimaniacv");
 		 Assert.assertEquals(false, result);
 	}
-	
+	@Test
+    public void when_Given_Rule1_PassWord_IsCorrect_Should_Return_True(){
+	 boolean result = junit.rule1_passWord("Sdaddimani19");
+	 Assert.assertEquals(true, result);
+    }
+	@Test
+ 	public void when_Given_Rule1_PassWord_IsNotCorrect_Should_Return_False(){
+		boolean result = junit.rule1_passWord("sdadddimaniacv");
+		Assert.assertEquals(false, result);
+}
 	
 	
 	
