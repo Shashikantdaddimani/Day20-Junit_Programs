@@ -32,22 +32,29 @@ public class UserRegistration {
 		Matcher matcher = pattern.matcher(mobileNumber);
 		return matcher.matches();
 	}
-	public boolean passWord(String password) {
+	public boolean rule1_passWord(String password) {
 		String regex = "((?=.*[A-Z]).{8,})";
 		Pattern pattern = Pattern .compile(regex);
 		Matcher matcher = pattern.matcher(password);
 		return matcher.matches();
 		
 	}
-	public boolean rule1_passWord(String password) {
+	public boolean rule2_passWord(String password) {
 		String regex = "((?=.*[A-Z])(?=.*[0-9]).{8,})";
 		Pattern pattern = Pattern .compile(regex);
 		Matcher matcher = pattern.matcher(password);
 		return matcher.matches();
 	
 }
-	public boolean rule2_passWord(String password) {
+	public boolean rule3_passWord(String password) {
 		String regex = "((?=.[a-z]).{8,9})";
+		Pattern pattern = Pattern .compile(regex);
+		Matcher matcher = pattern.matcher(password);
+		return matcher.matches();
+	
+	}
+	public boolean rule4_passWord(String password) {
+		String regex = "((?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$-%^&*]).{8,})";
 		Pattern pattern = Pattern .compile(regex);
 		Matcher matcher = pattern.matcher(password);
 		return matcher.matches();

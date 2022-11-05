@@ -48,36 +48,45 @@ public class UserRegistrationTest {
 		Assert.assertEquals(false, result);
    }
 	 @Test
-	    public void when_Given_PassWord_IsCorrect_Should_Return_True(){
-		 boolean result = junit.passWord("Sdaddimani");
+	    public void when_Given_Rule1_PassWord_IsCorrect_Should_Return_True(){
+		 boolean result = junit.rule1_passWord("Sdaddimani");
 		 Assert.assertEquals(true, result);
 	}
 	@Test
-	 public void when_Given_PassWord_IsNotCorrect_Should_Return_False(){
-		 boolean result = junit.passWord("sdaddimaoni");
+	 public void when_Given_Rule1_PassWord_IsNotCorrect_Should_Return_False(){
+		 boolean result = junit.rule1_passWord("sdaddimaoni");
 		 Assert.assertEquals(false, result);
 	}
 	@Test
-    public void when_Given_Rule1_PassWord_IsCorrect_Should_Return_True(){
-	 boolean result = junit.rule1_passWord("Sdaddima19");
-	 Assert.assertEquals(true, result);
-    }
-	@Test
- 	public void when_Given_Rule1_PassWord_IsNotCorrect_Should_Return_False(){
-		boolean result = junit.rule1_passWord("sdaddimani");
-		Assert.assertEquals(false, result);
-}
-	@Test
     public void when_Given_Rule2_PassWord_IsCorrect_Should_Return_True(){
-	 boolean result = junit.rule2_passWord("sdaddiman");
+	 boolean result = junit.rule2_passWord("Sdaddima19");
 	 Assert.assertEquals(true, result);
     }
 	@Test
  	public void when_Given_Rule2_PassWord_IsNotCorrect_Should_Return_False(){
-		boolean result = junit.rule2_passWord("sdaddimaniiig");
+		boolean result = junit.rule2_passWord("sdaddimani");
 		Assert.assertEquals(false, result);
 }
-	
+	@Test
+    public void when_Given_Rule3_PassWord_IsCorrect_Should_Return_True(){
+	 boolean result = junit.rule3_passWord("sdaddiman");
+	 Assert.assertEquals(true, result);
+    }
+	@Test
+ 	public void when_Given_Rule3_PassWord_IsNotCorrect_Should_Return_False(){
+		boolean result = junit.rule3_passWord("sdaddimaniiig");
+		Assert.assertEquals(false, result);
+}
+	@Test
+    public void when_Given_Rule4_PassWord_IsCorrect_Should_Return_True(){
+	 boolean result = junit.rule4_passWord("Sdaddi@12");
+	 Assert.assertEquals(true, result);
+    }
+	@Test
+ 	public void when_Given_Rule4_PassWord_IsNotCorrect_Should_Return_False(){
+		boolean result = junit.rule4_passWord("Sdaddi12");
+		Assert.assertEquals(false, result);
+}
 	
 	
 	
