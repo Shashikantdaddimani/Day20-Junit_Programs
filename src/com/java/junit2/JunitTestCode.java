@@ -1,78 +1,49 @@
 package com.java.junit2;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 
-
+@RunWith(Parameterized.class)
 public class JunitTestCode {
-	@Test
-    public void givenFirstName_whenProper_ShouldReturnTrue() {
-		JunitSourceCode userRegistrationRegEx = new JunitSourceCode();
-        boolean result = userRegistrationRegEx.firstNameValidate("Shashikant");
-        Assert.assertTrue(result);
+		private String emailTest;
+	    private boolean expectedResult;
+	    private JunitSourceCode validateEmail;
+	    
+		public JunitTestCode(String email, boolean expectedResult) {
+			super();
+			this.emailTest = email;
+			this.expectedResult = expectedResult;
+			
+		}
+		@Before
+		 public void initialize() {
+		        validateEmail = new JunitSourceCode();
+		}
+		@Parameterized.Parameters
+		public static Collection data() {
+			return Arrays.asList(new Object[][] { { "abc@yahoo.com", true }, { "abc-100@yahoo.com", true },
+                { "abc.100@yahoo.com", true }, { "abc111@abc.com", true }, { "abc-100@abc.net", true },
+                { "abc.100@abc.com.au", true }, { "abc@1.com", true }, { "abc@gmail.com.com", true },
+                { "abc+100@gmail.com", true }, { "abc", false }, { "abc@.com.my", false }, { "abc123@gmail.a", false },
+                { "abc123@.com", false }, { "abc123@.com.com", false }, { ".abc@abc.com", false },
+                { "abc()*@gmail.com", false }, { "abc@%*.com", false }, { "abc..2002@gmail.com", false },
+                { "abc.@gmail.com", false }, { "abc@abc@gmail.com", false }, { "abc@gmail.com.1a", false },
+                { "abc@gmail.com.aa.au", false } });
     }
-
-    @Test
-    public void givenFirstName_whenNotProper_ShouldReturnFalse() {
-    	JunitSourceCode userRegistrationRegEx = new JunitSourceCode();
-        boolean result = userRegistrationRegEx.firstNameValidate("shashikant");
-        Assert.assertFalse(result);
-    }
-
-    @Test
-    public void givenLastName_whenProper_ShouldReturnTrue() {
-    	JunitSourceCode userRegistrationRegEx = new JunitSourceCode();
-        boolean result = userRegistrationRegEx.lastNameValidate("Kmpl");
-        Assert.assertTrue(result);
-    }
-
-    @Test
-    public void givenLastName_whenNotProper_ShouldReturnFalse() {
-    	JunitSourceCode userRegistrationRegEx = new JunitSourceCode();
-        boolean result = userRegistrationRegEx.lastNameValidate("kmp");
-        Assert.assertFalse(result);
-    }
-
-    @Test
-    public void givenEmail_whenProper_ShouldReturnTrue() {
-    	JunitSourceCode userRegistrationRegEx = new JunitSourceCode();
-        boolean result = userRegistrationRegEx.emailValidate("abc.xyz@bl.co.in");
-        Assert.assertTrue(result);
-    }
-
-    @Test
-    public void givenEmail_whenNotProper_ShouldReturnFalse() {
-    	JunitSourceCode userRegistrationRegEx = new JunitSourceCode();
-        boolean result = userRegistrationRegEx.emailValidate("abc.xyz@bl.in");
-        Assert.assertFalse(result);
-    }
-
-    @Test
-    public void givenPhone_whenProper_ShouldReturnTrue() {
-    	JunitSourceCode userRegistrationRegEx = new JunitSourceCode();
-        boolean result = userRegistrationRegEx.phoneNumberValidate("91 9611327430");
-        Assert.assertTrue(result);
-    }
-
-    @Test
-    public void givenPhone_whenNotProper_ShouldReturnFalse() {
-    	JunitSourceCode userRegistrationRegEx = new JunitSourceCode();
-        boolean result = userRegistrationRegEx.phoneNumberValidate("9901523658");
-        Assert.assertFalse(result);
-    }
-
-    @Test
-    public void givenPassword_whenProper_ShouldReturnTrue() {
-    	JunitSourceCode userRegistrationRegEx = new JunitSourceCode();
-        boolean result = userRegistrationRegEx.passwordValidate("Ast85231#");
-        Assert.assertTrue(result);
-    }
-
-    @Test
-    public void givenPassword_whenNotProper_ShouldReturnFalse() {
-    	JunitSourceCode userRegistrationRegEx = new JunitSourceCode();
-        boolean result = userRegistrationRegEx.passwordValidate("shashi24#%");
-        Assert.assertFalse(result);
-    }
+		 @Test
+		    public void givenEmailAsVar_ShouldReturnTrueorFalse() {
+		        assertEquals(expectedResult, validateEmail.validateEmail(emailTest));
+		    }
+		 
 }
+	    
+
+
