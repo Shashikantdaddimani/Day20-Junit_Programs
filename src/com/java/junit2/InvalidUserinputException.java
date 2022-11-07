@@ -3,7 +3,7 @@ package com.java.junit2;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class InvalidUserinputException {
+public class InvalidUserinputException extends Exception {
 	@Test
     public void when_Given_FirstName_IsCorrect_Should_Return_True() {
         try {
